@@ -33,7 +33,7 @@ all_articles = articles["articles"][:19]
 titles = [f"Headline: {article['title']}" for article in all_articles]
 i = 0
 def news(i):
-    headline_label.config(text = f"{titles[i]}", font = ("Courier" ,9,"normal"), width = 90, height = 3, wraplength = 400, highlightthickness=1, highlightbackground= "black")
+    headline_label.config(text = f"{titles[i]}", font = ("Courier" ,9,"normal"), width = 90, height = 4, wraplength = 400, highlightthickness=1, highlightbackground= "black")
     headline_label.grid(column = 1, row = 0, columnspan = 4, padx=  5, pady = 5)
     if i>= 19:
         i = 0
@@ -56,7 +56,7 @@ def get_date(file, date_text, symbol):
         return
 
     text_label2 = tkinter.Label()
-    text_label2.config(text = f"Date: {date}\nTimezone: US/Eastern\n\nSymbol: {symbol.upper()}\nOpen: {openn}\nHigh: {high}\nLow: {low}\nClose: {closee}\n", font = ("Courier" ,9,"normal"), width = 40, highlightthickness = 2, highlightbackground = "black")
+    text_label2.config(text = f"Date: {date}\nTimezone: US/Eastern\n\nSymbol: {symbol.upper()}\nOpen: {openn}\nHigh: {high}\nLow: {low}\nClose: {closee}\n", font = ("Courier" ,9,"normal"), width = 45, highlightthickness = 2, highlightbackground = "black")
     text_label2.grid(column = 1, row = 6, columnspan = 2, padx = 5, pady = 5)
 
 def get_stocks():
@@ -85,7 +85,7 @@ def get_stocks():
     percent = (0.75/float(close_before_yesterday)) * 100
 
     text_label = tkinter.Label()
-    text_label.config(text = f"Today's Date: {today}\nTimezone: US/Eastern\n\nSymbol: {symbol.upper()}\nClosing (yesterday): {close_yesterday}\nClosing (Day before yesterday): {close_before_yesterday}\nDifference: {difference:5f}\nPercent: {percent:2f}%", font = ("Courier" ,9,"normal"), highlightthickness = 2, highlightbackground = "black")
+    text_label.config(text = f"Today's Date: {today}\nTimezone: US/Eastern\n\nSymbol: {symbol.upper()}\nClosing (yesterday): {close_yesterday}\nClosing (Day before yesterday): {close_before_yesterday}\nDifference: {difference:5f}\nPercent: {percent:2f}%", font = ("Courier" ,9,"normal"),width = 45, highlightthickness = 2, highlightbackground = "black")
     text_label.grid(column = 1, row = 3, columnspan = 2, padx = 5, pady = 5)
 
     response = messagebox.askyesno(title = "Question", message = "Do you want to check the stock data of a particular day?")
@@ -127,7 +127,7 @@ def get_stocks():
         art_label.grid(column = 3, row = 1, columnspan = 3)
 
         article_label = tkinter.Label()
-        article_label.config(text = f"Name: {name.title()}\nTitle: {art}\nDescription: {des} \n\nName: {name1.title()}\nTitle: {art1}\nDescription: {des1}\n\nName: {name2.title()}\nTitle: {art2}\nDescription: {des2}", width = 40, wraplength = 320, font = ("Courier" ,9,"normal"), highlightthickness = 2, highlightbackground = "black")
+        article_label.config(text = f"Name: {name.title()}\nTitle: {art}\nDescription: {des} \n\nName: {name1.title()}\nTitle: {art1}\nDescription: {des1}\n\nName: {name2.title()}\nTitle: {art2}\nDescription: {des2}", width = 45, wraplength = 320, font = ("Courier" ,9,"normal"), highlightthickness = 2, highlightbackground = "black")
         article_label.grid(column = 3, row = 2, columnspan = 3, rowspan = 6, pady = 10, padx = 10)
 
 button = tkinter.Button(text = "Get Stocks", command = get_stocks)
